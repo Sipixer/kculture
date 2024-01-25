@@ -1,7 +1,16 @@
 import { css } from "../styled-system/css";
+import SocketIo from "./components/SocketIo";
+import useSocketStore from "./store/socketStore";
 
 function App() {
-  return <div className={css({ fontWeight: "bold" })}>sss 🐼!</div>;
+  const socketStore = useSocketStore();
+  return (
+    <div className={css({ fontWeight: "bold" })}>
+      <SocketIo />
+      Hey
+      {socketStore.connected ? "👍" : "👎"}
+    </div>
+  );
 }
 
 export default App;
